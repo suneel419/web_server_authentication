@@ -31,14 +31,14 @@ void setup(void) {
     server.send(200, "text/plain", "hello from esp32!");
   });
 
-  //server.on(UriBraces("/users/{}"), []() {
-  server.on("/users/", []() {
+  server.on(UriBraces("/users/{}"), []() {
+  //server.on("/users/", []() {
     String user = server.pathArg(0);
     server.send(200, "text/plain", "User: '" + user + "'");
   });
   
-  //server.on(UriBraces("/users/{}/devices/{}"), []() {
-    server.on("/users/{}/devices/{}", []() {
+  server.on(UriBraces("/users/{}/devices/{}"), []() {
+  //  server.on("/users/{}/devices/{}", []() {
 
     String user = server.pathArg(0);
     String device = server.pathArg(1);
